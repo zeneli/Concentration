@@ -70,6 +70,7 @@
                         <outletCollection property="cardButtons" destination="P3z-tA-C0t" collectionClass="NSMutableArray" id="6t9-SX-3Bb"/>
                         <outletCollection property="cardButtons" destination="rs4-UO-vQ9" collectionClass="NSMutableArray" id="IyH-cI-H4G"/>
                         <outletCollection property="cardButtons" destination="sn6-xp-zIC" collectionClass="NSMutableArray" id="RnS-cR-GTi"/>
+                        <outletCollection property="cardButtons" destination="e0w-Mz-NP0" collectionClass="NSMutableArray" id="EP9-Ch-0g5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
