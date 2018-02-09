@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var game = Concentration()
+    var game = Concentration(numberOfPairsOfCards: 4)
     
     var flipCount = 0 {
         didSet {
