@@ -47,9 +47,20 @@ class ViewController: UIViewController {
         }
     }
     
-    var emojiChoices = ["🎃", "👻", "🎃", "👻"]
+    var emojiChoices = ["🎃", "👻"]
+
+    var emoji = Dictionary<Int, String>()
 
     func emoji(for card: Card) -> String {
-        return "?"
+        if emoji[card.identifier] == nil {  // just in time load the emoji dictionary
+            if emojiChoices.count > 0 {  // guard against no emoji's left in dictionary
+                let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
+                emoji[card.identifier] = emojiChoices.remove(at: randomIndex)
+            }
+        }
+        print("emoji for card \(card.identifier) is \(emoji[card.identifier] ?? "?")")
+
+        // return emoji of the card identifier if its not nil, otherwise "?"
+        return emoji[card.identifier] ?? "?"
     }
 }
