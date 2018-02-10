@@ -40,8 +40,8 @@ class Concentration {
     }
     
     init(numberOfPairsOfCards: Int) {
-        for identifier in 0..<numberOfPairsOfCards {
-            let card = Card(identifier: identifier)
+        for _ in 0..<numberOfPairsOfCards {
+            let card = Card()
             let matchingCard = card
             cards.append(card)
             cards.append(matchingCard)
@@ -50,5 +50,6 @@ class Concentration {
         // for current in 0..<numberOfPairsOfCards {
         //     rand = generate random number
         //     swap(cards[current], cards[rand])
+
     }
 }
