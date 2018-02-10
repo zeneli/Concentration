@@ -10,12 +10,32 @@ import Foundation
 
 class Concentration {
     var cards = Array<Card>()
+
+    // optional since there may not be one card face up at a given time
+    var indexOfOneAndOnlyOneFaceUpCard: Int?
     
+    // chooseCard is responsible for all cases of the game
     func chooseCard(at index: Int) {
-        if cards[index].isFaceUp {
-            cards[index].isFaceUp = false
-        } else {
-            cards[index].isFaceUp = true
+        // if theres one card face up and choose another card, see if they match (where we really do the work)
+        if !cards[index].isMatched {
+            if let matchIndex = indexOfOneAndOnlyOneFaceUpCard {
+                if matchIndex != index {
+                    // check if cards match
+                    if cards[matchIndex].identifier == cards[index].identifier {
+                        cards[matchIndex].isMatched = true
+                        cards[index].isMatched = true
+                    }
+                    cards[index].isFaceUp = true
+                    indexOfOneAndOnlyOneFaceUpCard = nil
+                }
+            } else {  // if no cards are faceUp, then flip the card over
+                // either no cards, or 2 cards are face up; flip them down (except the chosen card)
+                for flipDownIndex in cards.indices {
+                    cards[flipDownIndex].isFaceUp = false
+                }
+                cards[index].isFaceUp = true
+                indexOfOneAndOnlyOneFaceUpCard = index
+            }
         }
     }
     
