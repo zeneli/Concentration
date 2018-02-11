@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Concentration {
+struct Concentration {
     private(set) var cards = Array<Card>()
 
     private var indexOfOneAndOnlyOneFaceUpCard: Int? {
@@ -36,7 +36,7 @@ class Concentration {
     }
     
     // chooseCard is responsible for all cases of the game
-    func chooseCard(at index: Int) {
+    mutating func chooseCard(at index: Int) {
         assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)): chosen index not in the cards")
         // if theres one card face up and choose another card, see if they match (where we really do the work)
         if !cards[index].isMatched {
