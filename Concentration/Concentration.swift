@@ -9,9 +9,9 @@
 import Foundation
 
 class Concentration {
-    var cards = Array<Card>()
+    private(set) var cards = Array<Card>()
 
-    var indexOfOneAndOnlyOneFaceUpCard: Int? {
+    private var indexOfOneAndOnlyOneFaceUpCard: Int? {
         get {
             // look at all the cards and see if you find only one that's face up
             // if so, return it, else return nil
