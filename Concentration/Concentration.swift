@@ -37,6 +37,7 @@ class Concentration {
     
     // chooseCard is responsible for all cases of the game
     func chooseCard(at index: Int) {
+        assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)): chosen index not in the cards")
         // if theres one card face up and choose another card, see if they match (where we really do the work)
         if !cards[index].isMatched {
             if let matchIndex = indexOfOneAndOnlyOneFaceUpCard {
@@ -55,6 +56,7 @@ class Concentration {
     }
     
     init(numberOfPairsOfCards: Int) {
+        assert(numberOfPairsOfCards > 0, "Concentration.init(\(numberOfPairsOfCards)): must have at least one pair of cards")
         // Initialize cards.
         for _ in 0..<numberOfPairsOfCards {
             let card = Card()
