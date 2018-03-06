@@ -53,6 +53,13 @@ class ConcentrationViewController: UIViewController {
         }
     }
     
+    var theme: String? {
+        didSet {
+            emojiChoices = [theme ?? ""]
+            emoji = [:]
+            updateViewFromModel()
+        }
+    }
     private var emojiChoices = ["🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐨","🐯","🦁","🐮"]
 
     private var emoji = Dictionary<Int, String>()
